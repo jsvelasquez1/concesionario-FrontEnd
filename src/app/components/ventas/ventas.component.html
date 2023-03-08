@@ -1,0 +1,147 @@
+<div align="center">
+  <img class="imgti" src="assets/img/vent.svg" height="70px">
+</div>
+<br><br><br>
+<h2 style="text-align: center;">Administrar ventas</h2>
+<br><br>
+
+
+
+<div class="table-responsive">
+  <h4>Registrar nueva venta</h4>
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#formModal">
+    Nuevo Registro
+  </button>
+  <br><br><br>
+  <hr><br>
+  <h4>Ventas Actuales</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Precio</th>
+        <th scope="col">Fecha de compra</th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Vehiculo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ventas of ventasService.ventas">
+        <td>{{ventas.precio}}</td>
+        <td>{{ventas.fecha_compra}}</td>
+        <td>
+          <a data-toggle="modal" data-target="#formModal2" style="cursor: pointer"><i class="material-icons"
+              (click)="updateVentas(ventas)">Editar</i></a>
+        </td>
+        <td>
+          <a (click)="deleteVentas(ventas.id_ventas)" style="cursor: pointer"><i class="material-icons">Eliminar</i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Agregar Ventas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #ventasForm="ngForm">
+
+            <div class="mb-3">
+              <div class="input-group">
+                <input class="form-control" type="hidden" name="id_ventas" #id_ventas="ngModel"
+                  [(ngModel)]="ventasService.selectedVentas.id_ventas" />
+              </div>
+
+              <label>Total</label>
+              <div class="input-group">
+                <input type="number" class="form-control" name="precio" required placeholder="000.000$" maxlength="8"
+                  #matricula="ngModel" [(ngModel)]="ventasService.selectedVentas.precio" />
+              </div>
+
+              <label>Fecha de Venta</label>
+              <div class="input-group">
+                <input type="date" class="form-control" name="fecha_compra" required #fecha_compra="ngModel"
+                  [(ngModel)]="ventasService.selectedVentas.fecha_compra" />
+              </div>
+              <!--label>Empleado</label>
+            <div class="input-group">
+              <input class="form-control" name="modelo" required maxlength="40" required type="text" required
+                placeholder="Cargo del Ventas" #cargo="ngModel"
+                [(ngModel)]=""/>
+            </div>
+            <label>Cliente</label>
+            <div class="input-group">
+              <input type="number" class="form-control" name="salario" required maxlength="20" required
+                placeholder="000.000" #salario="ngModel"  />
+            </div>
+            <label>Vehiculo</label>
+            <div class="input-group">
+              <input class="form-control" type="date" required placeholder="" name="fecha_contrato"
+                #fecha_contrato="ngModel" />
+            </div-->
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!ventasForm.valid"
+            (click)="createVentas(ventasForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="formModal2" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Editar Ventas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #ventasForm="ngForm">
+
+            <div class="mb-3">
+              <div class="input-group">
+                <input name="code" class="form-control" type="hidden" name="id_ventas" #id_ventas="ngModel"
+                  [(ngModel)]="ventasService.selectedVentas.id_ventas" />
+              </div>
+
+              <label>Total</label>
+              <div class="input-group">
+                <input type="number" class="form-control" name="precio" required placeholder="000.000$" maxlength="8"
+                  #matricula="ngModel" [(ngModel)]="ventasService.selectedVentas.precio" />
+              </div>
+
+              <label>Fecha de Venta</label>
+              <div class="input-group">
+                <input type="date" class="form-control" name="fecha_compra" required #fecha_compra="ngModel"
+                  [(ngModel)]="ventasService.selectedVentas.fecha_compra" />
+              </div>
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" [disabled]="!ventasForm.valid"
+          (click)="createVentas(ventasForm)">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br><br><br>

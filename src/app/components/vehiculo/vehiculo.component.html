@@ -1,0 +1,165 @@
+<div align="center">
+  <img class="imgti" src="assets/img/ve.svg" height="70px">
+</div>
+<br><br><br>
+<h2 style="text-align: center;">Administrar vehiculos</h2>
+<br><br>
+<h4>Registrar nuevo vehiculo</h4>
+<div class="table-responsive">
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#formModal">
+    Nuevo Registro
+  </button>
+
+  <br><br><br>
+  <hr><br>
+
+  <h4>Vehiculos Actuales</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Matrícula</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Color</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehiculo of vehiculoService.vehiculo">
+        <td>{{vehiculo.matricula}}</td>
+        <td>{{vehiculo.marca}}</td>
+        <td>{{vehiculo.modelo}}</td>
+        <td>{{vehiculo.color}}</td>
+        <td>{{vehiculo.precio}}</td>
+        <td>
+          <a data-toggle="modal" data-target="#formModal2" style="cursor: pointer"><i class="material-icons"
+              (click)="updateVehiculo(vehiculo)">Editar</i></a>
+        </td>
+        <td>
+          <a (click)="deleteVehiculo(vehiculo.id_vehiculo)" style="cursor: pointer"><i
+              class="material-icons">Eliminar</i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Agregar Vehiculo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #vehiculoForm="ngForm">
+            <div class="mb-3">
+
+              <div class="input-group">
+                <input name="code" class="form-control" type="hidden" name="id_vehiculo" #id_vehiculo="ngModel"
+                  [(ngModel)]="vehiculoService.selectedVehiculo.id_vehiculo" />
+              </div>
+
+              <label>Matrícula</label>
+              <div class="input-group">
+                <input name="code" class="form-control" name="matricula" required placeholder="ASD-1234" maxlength="8"
+                  #matricula="ngModel" [(ngModel)]="vehiculoService.selectedVehiculo.matricula" />
+              </div>
+
+              <label>Marca</label>
+              <div class="input-group">
+                <input name="code" class="form-control" name="marca" required maxlength="40" #marca="ngModel" required
+                  placeholder="Kia" [(ngModel)]="vehiculoService.selectedVehiculo.marca" />
+              </div>
+              <label>Modelo</label>
+              <div class="input-group">
+                <input name="code" class="form-control" name="modelo" required maxlength="40" required type="text"
+                  required placeholder="Picanto" #modelo="ngModel"
+                  [(ngModel)]="vehiculoService.selectedVehiculo.modelo" />
+              </div>
+              <label>Color</label>
+              <div class="input-group">
+                <input name="code" class="form-control" name="color" required maxlength="20" #color="ngModel" required
+                  placeholder="Color del vehiculo" [(ngModel)]="vehiculoService.selectedVehiculo.color" />
+              </div>
+              <label>Precio</label>
+              <div class="input-group">
+                <input name="code" class="form-control" type="number" required placeholder="00000.00 $" name="precio"
+                  #precio="ngModel" [(ngModel)]="vehiculoService.selectedVehiculo.precio" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!vehiculoForm.valid"
+            (click)="createVehiculo(vehiculoForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="formModal2" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Editar Vehiculo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #vehiculoForm="ngForm">
+            <div class="mb-3">
+              <div class="mb-3">
+                <div class="input-group">
+                  <input name="code" class="form-control" type="hidden" name="id_vehiculo" #id_vehiculo="ngModel"
+                    [(ngModel)]="vehiculoService.selectedVehiculo.id_vehiculo" />
+                </div>
+              </div>
+              <label>Matricula</label>
+              <div class="input-group">
+                <input name="code" class="form-control" name="matricula" #matricula="ngModel" required placeholder="ASD-1234"
+                  [(ngModel)]="vehiculoService.selectedVehiculo.matricula" />
+              </div>
+
+            </div>
+            <label>Marca</label>
+            <div class="input-group">
+              <input name="code" class="form-control" name="marca" #marca="ngModel" required placeholder="kia"
+                [(ngModel)]="vehiculoService.selectedVehiculo.marca" />
+            </div>
+            <label>Modelo</label>
+            <div class="input-group">
+              <input name="code" class="form-control" required type="text" name="modelo" #modelo="ngModel" required placeholder="Picanto"
+                [(ngModel)]="vehiculoService.selectedVehiculo.modelo" />
+            </div>
+
+            <label>Color</label>
+            <div class="input-group">
+              <input name="code" class="form-control" name="color" #color="ngModel" required placeholder="Color del vehiculo"
+                [(ngModel)]="vehiculoService.selectedVehiculo.color" />
+            </div>
+            <label>Precio</label>
+            <div class="input-group">
+              <input name="code" class="form-control" name="precio" #precio="ngModel" required placeholder="00000.00 $"
+                [(ngModel)]="vehiculoService.selectedVehiculo.precio" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!vehiculoForm.valid"
+            (click)="createVehiculo(vehiculoForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>

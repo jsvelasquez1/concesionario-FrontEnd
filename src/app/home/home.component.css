@@ -1,0 +1,70 @@
+
+.plan1{
+  background-color: rgb(113, 202, 224);
+  border-radius: 15px;
+  margin-right: 10px;
+  box-shadow: 0px 0 90px 0 rgba(179, 179, 179, 0.3);
+}
+
+.plan2{
+  background-color: rgb(65, 133, 223);
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 0 90px 0 rgba(179, 179, 179, 0.3);
+}
+
+.plan3{
+  background-color: rgb(105, 202, 121);
+  border-radius: 15px;
+  margin-left: 10px;
+  box-shadow: 0px 0 90px 0 rgba(179, 179, 179, 0.3);
+}
+
+.con{
+  margin: 40px;
+  text-align: center;
+  margin-top: 70px;
+  color: white;
+}
+
+.btn btn-secondary{
+  margin-top: 50px;
+}
+
+h1{
+  font-family: 'Archivo', sans-serif;;
+}
+
+h2{
+ font-family: 'Archivo', sans-serif;;
+}
+
+h3{
+ font-family: 'Archivo', sans-serif;;
+}
+
+h4{
+ font-family: 'Archivo', sans-serif;;
+}
+
+
+h5{
+ font-family: 'Archivo', sans-serif;;
+}
+
+h6{
+ font-family: 'Archivo', sans-serif;;
+}
+
+p{
+ font-family: 'Archivo', sans-serif;;
+}
+
+a{
+  font-family: 'Archivo', sans-serif;;
+ }
+
+ li{
+  font-family: 'Archivo', sans-serif;;
+ }

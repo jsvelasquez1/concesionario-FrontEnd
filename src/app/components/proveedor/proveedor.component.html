@@ -1,0 +1,139 @@
+<div align="center">
+  <img class="imgti" src="assets/img/prov.svg" height="85px">
+</div>
+<br><br><br>
+<h2 style="text-align: center;">Administrar Proveedores</h2>
+<br><br>
+
+<div class="table-responsive">
+  <h4>Registrar nuevo Proveedor</h4>
+
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#formModal">
+    Nuevo Registro
+  </button>
+  <br><br><br>
+  <hr><br>
+
+  <h4>Proveedores Actuales</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proveedor of proveedorService.proveedor">
+        <td>{{proveedor.nombre}}</td>
+        <td>{{proveedor.direccion}}</td>
+        <td>{{proveedor.num_telefono}}</td>
+        <td>
+          <a data-toggle="modal" data-target="#formModal2" style="cursor: pointer"><i class="material-icons"
+              (click)="updateProveedor(proveedor)">Editar</i></a>
+        </td>
+        <td>
+          <a (click)="deleteProveedor(proveedor.id_proveedor)" style="cursor: pointer"><i
+              class="material-icons">Eliminar</i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br><br><br>
+
+  <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Agregar Proveedor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #ProveedorForm="ngForm">
+            <div class="mb-3">
+
+              <div class="input-group">
+                <input class="form-control" type="hidden" name="id_proveedor" #id_proveedor="ngModel"
+                  [(ngModel)]="proveedorService.selectedProveedor.id_proveedor" />
+              </div>
+
+              <label>Nombres y Apellidos</label>
+              <div class="input-group">
+                <input class="form-control" name="nombre" maxlength="30" required #nombre="ngModel"
+                  placeholder="Nombres y Apellidos del Proveedor" [(ngModel)]="proveedorService.selectedProveedor.nombre" />
+              </div>
+              <label>Dirección</label>
+              <div class="input-group">
+                <input class="form-control" name="direccion" maxlength="100" required #direccion="ngModel" required
+                  placeholder="Dirección del Proveedor" [(ngModel)]="proveedorService.selectedProveedor.direccion" />
+              </div>
+              <label>Teléfono</label>
+              <div class="input-group">
+                <input class="form-control" name="num_telefono" maxlength="10" required placeholder="0966753655"
+                  type="number" #num_telefono="ngModel" [(ngModel)]="proveedorService.selectedProveedor.num_telefono" />
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!ProveedorForm.valid"
+            (click)="createProveedor(ProveedorForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="formModal2" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Editar Proveedor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #ProveedorForm="ngForm">
+
+            <div class="mb-3">
+              <div class="input-group">
+                <input name="code" class="form-control" type="hidden" name="id_proveedor" #id_proveedor="ngModel"
+                  [(ngModel)]="proveedorService.selectedProveedor.id_proveedor" />
+              </div>
+              <label>Nombres y Apellidos</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="nombre" required placeholder="Nombres y Apellidos del Proveedor"
+                  #nombre="ngModel" [(ngModel)]="proveedorService.selectedProveedor.nombre" />
+              </div>
+              <label>Dirección</label>
+              <div class="input-group">
+                <input class="form-control" name="direccion" #direccion="ngModel" required
+                  placeholder="Dirección del Proveedor" [(ngModel)]="proveedorService.selectedProveedor.direccion" />
+              </div>
+              <label>Teléfono</label>
+              <div class="input-group">
+                <input class="form-control" name="num_telefono" #num_telefono="ngModel" required placeholder="0966753655"
+                  type="number" [(ngModel)]="proveedorService.selectedProveedor.num_telefono"/>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!ProveedorForm.valid"
+            (click)="createProveedor(ProveedorForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

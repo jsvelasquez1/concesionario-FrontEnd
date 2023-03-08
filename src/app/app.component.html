@@ -1,0 +1,127 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <img
+      src="assets/img/logo.svg"
+      alt="" height="100">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/administrador" routerLinkActive="active">Administrador</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<br><br>
+
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>
+
+<br><br>
+
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-cta pt-5 pb-5">
+      <div class="row">
+        <div class="col-xl-4 col-md-4 mb-30">
+          <div class="single-cta">
+            <i class="fa fa-map-marker"></i>
+            <div class="cta-text">
+              <h4>Encuéntranos</h4>
+              <span>Av. Chone km5</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-4 mb-30">
+          <div class="single-cta">
+            <i class="fa fa-phone"></i>
+            <div class="cta-text">
+              <h4>Contáctanos</h4>
+              <span>0956543355</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-4 mb-30">
+          <div class="single-cta">
+            <i class="fa fa-envelope-open"></i>
+            <div class="cta-text">
+              <h4>Mail</h4>
+              <span>sekautomotores@info.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-content pt-5 pb-5">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 mb-50">
+          <div class="footer-widget">
+            <div class="footer-logo">
+              <a href="index.html">
+                <img
+                  src="assets/img/logobn.svg"
+                  class="img-fluid" alt="logo"  height="180">
+              </a>
+            </div>
+            <div class="footer-text">
+              <p>Muévete con estilo, elige nuestro concesionario de automóviles. Los mejores precios y las mejores marcas.</p>
+              <p>Accede a reparación vehicular cuando lo necesites.</p>
+            </div>
+            <div class="footer-social-icon">
+              <!--span>Follow us</span-->
+              <a href="#"><i class="fa fa-facebook-f facebook-bg"></i></a>
+              <a href="#"><i class="fa fa-twitter twitter-bg"></i></a>
+              <a href="#"><i class="fa fa-google-plus google-bg"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+          <div class="footer-widget">
+            <div class="footer-widget-heading">
+              <h3>Useful Links</h3>
+            </div>
+            <ul>
+              <li><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
+              <li><a class="nav-link" routerLink="/vehiculo" routerLinkActive="active">Vehiculo</a></li>
+              <li><a class="nav-link" routerLink="/administrador" routerLinkActive="active">Administrador</a></li>
+              <li><a class="nav-link" routerLink="/cliente" routerLinkActive="active">Cliente</a></li>
+              <li><a class="nav-link" routerLink="/ventas" routerLinkActive="active">Ventas</a></li>
+              <li><a class="nav-link" routerLink="/proveedor" routerLinkActive="active">Proveedor</a></li>
+              <li><a class="nav-link" routerLink="/empleado" routerLinkActive="active">Empleados</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+          <div class="copyright-text">
+            <p>Copyright &copy; 2023, All Right Reserved SEK Automotores</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+          <div class="footer-menu">
+            <ul>
+              <li><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
+              <li><a class="nav-link" routerLink="/administrador" routerLinkActive="active">Administrador</a></li>
+              <li><a class="nav-link" routerLink="/vehiculo" routerLinkActive="active">Vehiculo</a></li>
+              <li><a class="nav-link" routerLink="/cliente" routerLinkActive="active">Cliente</a></li>
+              <li><a class="nav-link" routerLink="/ventas" routerLinkActive="active">Ventas</a></li>
+              <li><a class="nav-link" routerLink="/proveedor" routerLinkActive="active">Proveedor</a></li>
+              <li><a class="nav-link" routerLink="/empleado" routerLinkActive="active">Empleados</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

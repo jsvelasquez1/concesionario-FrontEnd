@@ -1,0 +1,167 @@
+<div align="center">
+  <img class="imgti" src="assets/img/cliee.svg" height="70px">
+</div>
+<br><br><br>
+<h2 style="text-align: center;">Administrar Clientes</h2>
+<br><br>
+
+<div class="table-responsive">
+  <h4>Registrar nuevo Cliente</h4>
+
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#formModal">
+    Nuevo Registro
+  </button>
+  <br><br><br>
+  <hr><br>
+
+  <h4>Clientes Actuales</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Cédula</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clientes of clienteService.cliente">
+        <td>{{clientes.nombre}}</td>
+        <td>{{clientes.apellido}}</td>
+        <td>{{clientes.cedula}}</td>
+        <td>{{clientes.telefono}}</td>
+        <td>{{clientes.direccion}}</td>
+        <td>
+          <a data-toggle="modal" data-target="#formModal2" style="cursor: pointer"><i class="material-icons"
+              (click)="updateCliente(clientes)">Editar</i></a>
+        </td>
+        <td>
+          <a (click)="deleteCliente(clientes.id_cliente)" style="cursor: pointer"><i
+              class="material-icons">Eliminar</i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br><br><br>
+
+  <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Agregar Clientes</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #clientesForm="ngForm">
+            <div class="mb-3">
+
+              <div class="input-group">
+                <input class="form-control" type="hidden" name="id_cliente" #id_cliente="ngModel"
+                  [(ngModel)]="clienteService.selectedCliente.id_cliente" />
+              </div>
+
+              <label>Nombres</label>
+              <div class="input-group">
+                <input class="form-control" name="nombre" maxlength="30" required #nombre="ngModel"
+                  placeholder="Nombres del Cliente" [(ngModel)]="clienteService.selectedCliente.nombre" />
+              </div>
+
+              <label>Apellidos</label>
+              <div class="input-group">
+                <input class="form-control" name="apellido" maxlength="30" required #apellido="ngModel"
+                  placeholder="Apellidos del Cliente" [(ngModel)]="clienteService.selectedCliente.apellido" />
+              </div>
+              <label>Cédula</label>
+              <div class="input-group">
+                <input class="form-control" name="cedula" placeholder="1234567890" required type="number" minlength="10"
+                  maxlength="10" (change)="validadorDeCedula(clientesForm)" #cedula="ngModel" required
+                  placeholder="1402500236" [(ngModel)]="clienteService.selectedCliente.cedula" />
+              </div>
+              <label>Teléfono</label>
+              <div class="input-group">
+                <input class="form-control" name="telefono" maxlength="10" required placeholder="0966753655"
+                  type="number" #telefono="ngModel" [(ngModel)]="clienteService.selectedCliente.telefono" />
+              </div>
+              <label>Dirección</label>
+              <div class="input-group">
+                <input class="form-control" name="direccion" maxlength="100" required #direccion="ngModel" required
+                  placeholder="Dirección del Cliente" [(ngModel)]="clienteService.selectedCliente.direccion" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!clientesForm.valid"
+            (click)="createCliente(clientesForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="formModal2" tabindex="-1" role="dialog" aria-labelledby="IdmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="IdmodalLabel">Editar Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #clientesForm="ngForm">
+
+            <div class="mb-3">
+              <div class="input-group">
+                <input name="code" class="form-control" type="hidden" name="id_cliente" #id_cliente="ngModel"
+                  [(ngModel)]="clienteService.selectedCliente.id_cliente" />
+              </div>
+              <label>Nombres</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="nombre" required placeholder="Nombres del Cliente"
+                  #nombre="ngModel" [(ngModel)]="clienteService.selectedCliente.nombre" />
+              </div>
+
+              <label>Apellidos</label>
+              <div class="input-group">
+                <input class="form-control" name="apellido" #apellido="ngModel" placeholder="Apellidos del Cliente"
+                  type="text" [(ngModel)]="clienteService.selectedCliente.apellido" />
+              </div>
+              <label>Cédula</label>
+              <div class="input-group">
+                <input class="form-control" disabled required type="number" minlength="10" maxlength="10"
+                  (change)="validadorDeCedula(clientesForm)" required placeholder="1402500236" name="cedula"
+                  #cedula="ngModel" [(ngModel)]="clienteService.selectedCliente.cedula" />
+              </div>
+
+              <label>Teléfono</label>
+              <div class="input-group">
+                <input class="form-control" name="telefono" #telefono="ngModel" required placeholder="0966753655"
+                  type="number" [(ngModel)]="clienteService.selectedCliente.telefono" />
+              </div>
+              <label>Dirección</label>
+              <div class="input-group">
+                <input class="form-control" name="direccion" #direccion="ngModel" required
+                  placeholder="Dirección del Cliente" [(ngModel)]="clienteService.selectedCliente.direccion" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-dark" [disabled]="!clientesForm.valid"
+            (click)="createCliente(clientesForm)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
