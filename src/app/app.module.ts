@@ -13,6 +13,9 @@ import { AdministradorComponent } from './components/administrador/administrador
 import { EmpleadoComponent } from './components/empleado/empleado.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import {ProveedorComponent} from './components/proveedor/proveedor.component';
+import { LoginComponent } from './components/login/login.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,7 @@ import {ProveedorComponent} from './components/proveedor/proveedor.component';
     VehiculoComponent,
     HomeComponent,
     AdministradorComponent, EmpleadoComponent,
-    VentasComponent, ProveedorComponent
+    VentasComponent, ProveedorComponent, LoginComponent
   ],
   imports: [
     BrowserModule,

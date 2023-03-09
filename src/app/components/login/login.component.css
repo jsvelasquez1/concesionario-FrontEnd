@@ -1,0 +1,49 @@
+
+h1{
+  font-family: 'Archivo', sans-serif;;
+}
+
+h2{
+ font-family: 'Archivo', sans-serif;;
+}
+
+h3{
+ font-family: 'Archivo', sans-serif;;
+}
+
+h4{
+ font-family: 'Archivo', sans-serif;;
+}
+
+
+h5{
+ font-family: 'Archivo', sans-serif;;
+}
+
+h6{
+ font-family: 'Archivo', sans-serif;;
+}
+
+p{
+ font-family: 'Archivo', sans-serif;;
+}
+
+a{
+  font-family: 'Archivo', sans-serif;;
+ }
+
+ li{
+  font-family: 'Archivo', sans-serif;;
+ }
+
+ label{
+  font-family: 'Archivo', sans-serif;
+ }
+
+ ::placeholder{
+  font-family: 'Archivo', sans-serif;
+ }
+
+ button{
+  font-family: 'Archivo', sans-serif;
+ }
