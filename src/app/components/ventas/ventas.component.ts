@@ -45,7 +45,7 @@ export class VentasComponent {
       });
     }else{
       if(form.valid){
-        if(this.validador==true && form.valid){
+        if(form.valid){
           this.ventasService.postVentas(form.value).subscribe((res) =>{
             form.reset();
             Swal.fire({
@@ -118,46 +118,7 @@ export class VentasComponent {
     });
   }
 
-  validadorDeCedula(form: NgForm){
-    let cedulaCorrecta = false;
-    if (form.value.cedula.length == 10) {
-      let tercerDigito = parseInt(form.value.cedula.substring(2, 3));
-      if (tercerDigito < 6) {
-        // El ultimo digito se lo considera dígito verificador
-        let coefValCedula = [2, 1, 2, 1, 2, 1, 2, 1, 2];
-        let verificador = parseInt(form.value.cedula.substring(9, 10));
-        let suma: number = 0;
-        let digito: number = 0;
-        for (let i = 0; i < form.value.cedula.length - 1; i++) {
-          digito = parseInt(form.value.cedula.substring(i, i + 1)) * coefValCedula[i];
-          suma += parseInt((digito % 10) + '') + parseInt(digito / 10 + '');
-          //      console.log(suma+" suma"+coefValCedula[i]);
-        }
 
-        suma = Math.round(suma);
-
-        //  console.log(verificador);
-        //  console.log(suma);
-        //  console.log(digito);
-
-        if (
-          Math.round(suma % 10) == 0 &&
-          Math.round(suma % 10) == verificador
-        ) {
-          cedulaCorrecta = true;
-        } else if (10 - Math.round(suma % 10) == verificador) {
-          cedulaCorrecta = true;
-        } else {
-          cedulaCorrecta = false;
-        }
-      } else {
-        cedulaCorrecta = false;
-      }
-    } else {
-      cedulaCorrecta = false;
-    }
-    this.validador = cedulaCorrecta;
-  }
 
 
 }

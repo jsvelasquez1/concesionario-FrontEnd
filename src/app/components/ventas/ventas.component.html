@@ -29,12 +29,15 @@
       <tr *ngFor="let ventas of ventasService.ventas">
         <td>{{ventas.precio}}</td>
         <td>{{ventas.fecha_compra}}</td>
+        <td>{{ventas.empleadoId}}</td>
+        <td>{{ventas.clienteId}}</td>
+        <td>{{ventas.vehiculoId}}</td>
         <td>
           <a data-toggle="modal" data-target="#formModal2" style="cursor: pointer"><i class="material-icons"
-              (click)="updateVentas(ventas)">Editar</i></a>
+              (click)="updateVentas(ventas)">edit</i></a>
         </td>
         <td>
-          <a (click)="deleteVentas(ventas.id_ventas)" style="cursor: pointer"><i class="material-icons">Eliminar</i></a>
+          <a (click)="deleteVentas(ventas.id_ventas)" style="cursor: pointer"><i class="material-icons">delete</i></a>
         </td>
       </tr>
     </tbody>

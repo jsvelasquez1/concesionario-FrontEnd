@@ -10,7 +10,7 @@ export class VentasService {
   selectedVentas: Ventas;
   ventas!: Ventas[];
 
-  readonly URL_API = "http://localhost:8080/ventas";
+  readonly URL_API = "http://localhost:8080/api/venta";
   constructor(private http: HttpClient) {
     this.selectedVentas = new Ventas();
   }

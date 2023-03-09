@@ -33,11 +33,11 @@
         <td>{{empleado.fecha_contrato}}</td>
         <td>
           <a data-toggle="modal" data-target="#formModal2" style="cursor: pointer"><i class="material-icons"
-              (click)="updateEmpleado(empleado)">Editar</i></a>
+              (click)="updateEmpleado(empleado)">edit</i></a>
         </td>
         <td>
           <a (click)="deleteEmpleado(empleado.id_empleado)" style="cursor: pointer"><i
-              class="material-icons">Eliminar</i></a>
+              class="material-icons">delete</i></a>
         </td>
       </tr>
     </tbody>
@@ -76,8 +76,8 @@
               </div>
               <label>Cargo</label>
               <div class="input-group">
-                <input class="form-control" name="modelo" required maxlength="40" required type="text" required
-                  placeholder="Cargo del empleado" #cargo="ngModel"
+                <input class="form-control" name="cargoEmpleado" required maxlength="40" required type="text" required
+                  placeholder="Cargo del empleado" #cargoEmpleado="ngModel"
                   [(ngModel)]="empleadoService.selectedEmpleado.cargo" />
               </div>
               <label>Salario</label>
@@ -134,16 +134,15 @@
                   placeholder="Apellidos del empleado" #apellido="ngModel"
                   [(ngModel)]="empleadoService.selectedEmpleado.apellido" />
               </div>
-              <label>Cargo</label>
-              <div class="input-group">
-                <input class="form-control" name="modelo" required maxlength="40" required type="text" required
-                  placeholder="Cargo del empleado" #cargo="ngModel"
-                  [(ngModel)]="empleadoService.selectedEmpleado.cargo" />
-              </div>
               <label>Salario</label>
               <div class="input-group">
                 <input type="number" class="form-control" name="salario" required maxlength="20" required
                   placeholder="000.000" #salario="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.salario" />
+              </div>
+              <label>Cargo</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="cargoEmpleado" required maxlength="40" required
+                  placeholder="Cargo" #cargoEmpleado="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.cargo" />
               </div>
               <label>Fecha de contrato</label>
               <div class="input-group">

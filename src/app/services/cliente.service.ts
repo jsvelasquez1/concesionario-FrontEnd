@@ -10,7 +10,7 @@ export class ClienteService {
   selectedCliente: Cliente;
   cliente!: Cliente[];
 
-  readonly URL_API = "http://localhost:8080/cliente";
+  readonly URL_API = "http://localhost:8080/api/cliente";
   cliente$: any;
   constructor(private http: HttpClient) {
     this.selectedCliente = new Cliente();

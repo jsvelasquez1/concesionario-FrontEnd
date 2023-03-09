@@ -44,7 +44,7 @@ export class EmpleadoComponent {
       });
     }else{
       if(form.valid){
-        if(this.validador==true && form.valid){
+        if(form.valid){
           this.empleadoService.postEmpleado(form.value).subscribe((res) =>{
             form.reset();
             Swal.fire({
