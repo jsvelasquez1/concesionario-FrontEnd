@@ -31,27 +31,27 @@ const routes: Routes = [
   {
     path: 'cliente',
     component: ClienteComponent,
-    canActivate: [guard], 
+    canActivate: [guard], data:{expectedRol: ['admin']} 
   },
   {
     path: 'vehiculo',
     component: VehiculoComponent,
-    canActivate: [guard]
+    canActivate: [guard], data:{expectedRol: ['admin']}
   },
   {
     path: 'ventas',
     component: VentasComponent,
-    canActivate: [guard]
+    canActivate: [guard], data:{expectedRol: ['admin']}
   },
   {
     path: 'empleado',
     component: EmpleadoComponent,
-    canActivate: [guard]
+    canActivate: [guard], data:{expectedRol: ['admin']}
   },
   {
     path: 'proveedor',
     component: ProveedorComponent,
-    canActivate: [guard]
+    canActivate: [guard], data:{expectedRol: ['admin']}
   },
   {
     path: 'login',
