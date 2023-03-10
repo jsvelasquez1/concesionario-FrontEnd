@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { EmpleadoComponent } from './components/empleado/empleado.component';
 import { VentasComponent } from './components/ventas/ventas.component';
-import {ProveedorComponent} from './components/proveedor/proveedor.component';
+import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { LoginComponent } from './components/login/login.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
