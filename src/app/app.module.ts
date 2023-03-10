@@ -17,6 +17,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RegistroComponent } from './components/auth/registro.component';
 import { LoginComponent } from './components/auth/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { interceptorProvider } from './services/prod-interceptor.service';
+import { AuthGuard } from './services/auth.guard';
+
 
 
 @NgModule({
@@ -35,9 +38,11 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot()
-
   ],
-  providers: [],
+  providers: [
+    AuthGuard, 
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

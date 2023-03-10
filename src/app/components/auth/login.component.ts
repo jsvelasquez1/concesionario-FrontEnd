@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginUsuario } from 'src/app/models/login-usuario';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -48,7 +49,14 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/administrador']);
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Sesión iniciada',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       },
       err => {
         this.isLogged = false;

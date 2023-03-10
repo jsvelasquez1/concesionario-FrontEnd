@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu',
@@ -22,6 +23,13 @@ export class MenuComponent implements OnInit {
 
   onLogOut(): void {
     this.tokenService.logOut();
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Cerraste sesión',
+      showConfirmButton: false,
+      timer: 1500,
+    });
     window.location.reload();
   }
 

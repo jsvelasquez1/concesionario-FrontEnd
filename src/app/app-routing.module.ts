@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './components/auth/login.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { RegistroComponent } from './components/auth/registro.component';
+import { AuthGuard as guard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -24,27 +25,33 @@ const routes: Routes = [
   },
   {
     path: 'administrador',
-    component: AdministradorComponent
+    component: AdministradorComponent,
+    canActivate: [guard], data:{expectedRol: ['admin']}
   },
   {
     path: 'cliente',
-    component: ClienteComponent
+    component: ClienteComponent,
+    canActivate: [guard], 
   },
   {
     path: 'vehiculo',
-    component: VehiculoComponent
+    component: VehiculoComponent,
+    canActivate: [guard]
   },
   {
     path: 'ventas',
-    component: VentasComponent
+    component: VentasComponent,
+    canActivate: [guard]
   },
   {
     path: 'empleado',
-    component: EmpleadoComponent
+    component: EmpleadoComponent,
+    canActivate: [guard]
   },
   {
     path: 'proveedor',
-    component: ProveedorComponent
+    component: ProveedorComponent,
+    canActivate: [guard]
   },
   {
     path: 'login',
@@ -52,7 +59,8 @@ const routes: Routes = [
   },
   {
     path: 'usuario',
-    component: UsuarioComponent
+    component: UsuarioComponent,
+    canActivate: [guard], data:{expectedRol: ['user']}
   },
   {
     path: 'registro',

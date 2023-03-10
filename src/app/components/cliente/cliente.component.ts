@@ -43,7 +43,7 @@ export class ClienteComponent {
       });
     }else{
       if(form.valid){
-        if(this.validador==true && form.valid){
+        if(form.valid){
           this.clienteService.postCliente(form.value).subscribe((res) =>{
             form.reset();
             Swal.fire({
