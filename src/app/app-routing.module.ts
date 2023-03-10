@@ -8,8 +8,9 @@ import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { VehiculoComponent } from './components/vehiculo/vehiculo.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth/login.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { RegistroComponent } from './components/auth/registro.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'usuario',
     component: UsuarioComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
   },
 
 ];

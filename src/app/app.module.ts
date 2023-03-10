@@ -13,9 +13,11 @@ import { AdministradorComponent } from './components/administrador/administrador
 import { EmpleadoComponent } from './components/empleado/empleado.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { ProveedorComponent } from './components/proveedor/proveedor.component';
-import { LoginComponent } from './components/login/login.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
-
+import { MenuComponent } from './components/menu/menu.component';
+import { RegistroComponent } from './components/auth/registro.component';
+import { LoginComponent } from './components/auth/login.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -25,14 +27,15 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     VehiculoComponent,
     HomeComponent,
     AdministradorComponent, EmpleadoComponent,
-    VentasComponent, ProveedorComponent, LoginComponent, UsuarioComponent
+    VentasComponent, ProveedorComponent, LoginComponent, UsuarioComponent, MenuComponent,RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [],

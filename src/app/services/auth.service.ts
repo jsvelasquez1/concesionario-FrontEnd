@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { NuevoUsuario } from '../models/nuevo-usuario';
+import { LoginUsuario } from '../models/login-usuario';
+import { JwtDTO } from '../models/jwt-dto';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,28 +12,17 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  //public username: string;
-  //public password: string;
+  authURL = 'http://localhost:8080/auth/';
 
-constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) { }
 
-}
-/*
-login(username: string, password: string) {
-  return this.http.get(environment.hostUrl + `/api/v1/login`,
-    { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-      this.username = username;
-      this.password = password;
-      this.registerSuccessfulLogin(username, password);
-    }));
+  public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
+    return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario);
+  }
+
+  public login(loginUsuario: LoginUsuario): Observable<JwtDTO> {
+    return this.httpClient.post<JwtDTO>(this.authURL + 'login', loginUsuario);
+  }
 }
 
-createBasicAuthToken(username: string, password: string) {
-  return 'Basic ' + window.btoa(username + ":" + password);
-}
 
-registerSuccessfulLogin(username, password) {
-  // save the username to session
-}*/
-
-}
