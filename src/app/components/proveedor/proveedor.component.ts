@@ -46,7 +46,7 @@ export class ProveedorComponent {
       });
     }else{
       if(form.valid){
-        if(this.validador==true && form.valid){
+        if(form.valid){
           this.proveedorService.postProveedor(form.value).subscribe((res) =>{
             form.reset();
             Swal.fire({

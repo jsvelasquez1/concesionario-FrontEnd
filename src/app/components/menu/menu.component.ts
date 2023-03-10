@@ -11,7 +11,10 @@ export class MenuComponent implements OnInit {
 
   isLogged = false;
 
+
   constructor(private tokenService: TokenService) { }
+
+  
 
   ngOnInit() {
     if (this.tokenService.getToken()) {

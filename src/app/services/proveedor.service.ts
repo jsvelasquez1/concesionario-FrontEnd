@@ -10,7 +10,7 @@ export class ProveedorService {
   selectedProveedor: Proveedor;
   proveedor!: Proveedor[];
 
-  readonly URL_API = "http://localhost:8080/proveedor";
+  readonly URL_API = "http://localhost:8080/api/proveedor";
   constructor(private http: HttpClient) {
     this.selectedProveedor = new Proveedor();
   }

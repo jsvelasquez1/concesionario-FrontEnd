@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/administrador']);
+        
         Swal.fire({
           position: 'top',
           icon: 'success',
