@@ -15,7 +15,7 @@ import { RegistroComponent } from './components/auth/registro.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/usuario',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
