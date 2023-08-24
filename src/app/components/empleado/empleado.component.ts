@@ -26,7 +26,7 @@ export class EmpleadoComponent {
   getEmpleado(){
     this.empleadoService.getEmpleado().subscribe((res) =>{
       this.empleadoService.empleado = res as Empleado[];
-      console.log(res);
+      // console.log(res);
     })
   }
 

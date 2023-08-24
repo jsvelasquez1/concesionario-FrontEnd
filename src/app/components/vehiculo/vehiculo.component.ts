@@ -32,7 +32,7 @@ export class VehiculoComponent {
   getVehiculoes(){
     this.vehiculoService.getVehiculo().subscribe((res) =>{
       this.vehiculoService.vehiculo = res as Vehiculo[];
-      console.log(res);
+      // console.log(res);
     });
   }
 

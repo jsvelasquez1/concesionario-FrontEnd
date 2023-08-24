@@ -25,7 +25,7 @@ export class ClienteComponent {
   getClientes(){
     this.clienteService.getCliente().subscribe((res) =>{
       this.clienteService.cliente = res as Cliente[];
-      console.log(res);
+      // console.log(res);
     })
   }
 

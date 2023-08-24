@@ -28,7 +28,7 @@ export class ProveedorComponent {
   getProveedor(){
     this.proveedorService.getProveedor().subscribe((res) =>{
       this.proveedorService.proveedor = res as Proveedor[];
-      console.log(res);
+      // console.log(res);
     })
   }
 

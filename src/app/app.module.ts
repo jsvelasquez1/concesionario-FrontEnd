@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClienteComponent } from './components/cliente/cliente.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -37,6 +38,7 @@ import { AuthGuard } from './services/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [
